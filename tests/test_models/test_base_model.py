@@ -40,30 +40,30 @@ class TestBaseModel(unittest.TestCase):
 
     def test_to_dict(self):
         """Test the to_dict method of the BaseModel class."""
-        bm = BaseModel(name="Aliyu", number=27)
+        bm = BaseModel(name="Omaima", number=29)
         bm_dict = bm.to_dict()
         self.assertIsInstance(bm_dict, dict)
         self.assertEqual(bm_dict["__class__"], "BaseModel")
         self.assertEqual(bm_dict["id"], bm.id)
         self.assertEqual(bm_dict["created_at"], bm.created_at.isoformat())
         self.assertEqual(bm_dict["updated_at"], bm.updated_at.isoformat())
-        self.assertEqual(bm_dict["name"], "Aliyu")
-        self.assertEqual(bm_dict["number"], 27)
+        self.assertEqual(bm_dict["name"], "Oumaima")
+        self.assertEqual(bm_dict["number"], 29)
 
     def test_instantiation_with_kwargs(self):
         """Test instantiation of BaseModel with keyword arguments."""
         dt = datetime.today()
         dt_iso = dt.isoformat()
-        bm = BaseModel(id="345", created_at=dt_iso, updated_at=dt_iso)
-        self.assertEqual(bm.id, "345")
+        bm = BaseModel(id="567", created_at=dt_iso, updated_at=dt_iso)
+        self.assertEqual(bm.id, "567")
         self.assertEqual(bm.created_at, dt)
         self.assertEqual(bm.updated_at, dt)
 
     def test_instantiation_with_args_and_kwargs(self):
         dt = datetime.today()
         dt_iso = dt.isoformat()
-        bm = BaseModel("12", id="345", created_at=dt_iso, updated_at=dt_iso)
-        self.assertEqual(bm.id, "345")
+        bm = BaseModel("59", id="567", created_at=dt_iso, updated_at=dt_iso)
+        self.assertEqual(bm.id, "567")
         self.assertEqual(bm.created_at, dt)
         self.assertEqual(bm.updated_at, dt)
 
@@ -101,12 +101,12 @@ class TestBaseModel(unittest.TestCase):
 
     def test_to_dict_with_custom_attributes(self):
         """Test the to_dict method with custom attributes."""
-        bm = BaseModel(name="Alice", age=30)
+        bm = BaseModel(name="Oumaima", age=29)
         bm_dict = bm.to_dict()
         self.assertIn("name", bm_dict)
         self.assertIn("age", bm_dict)
-        self.assertEqual(bm_dict["name"], "Alice")
-        self.assertEqual(bm_dict["age"], 30)
+        self.assertEqual(bm_dict["name"], "Oumaima")
+        self.assertEqual(bm_dict["age"], 29)
 
     def test_updated_at_to_dict(self):
         """Test that the updated_at attribute is in the to_dict output."""
@@ -122,7 +122,7 @@ class TestBaseModel(unittest.TestCase):
 
     def test_str_representation_custom_attributes(self):
         """Test the __str__ representation with custom attributes."""
-        bm = BaseModel(name="Alice", age=30)
+        bm = BaseModel(name="oumaima", age=29)
         expected_str = "[BaseModel] ({}) {}".format(bm.id, bm.__dict__)
         self.assertEqual(str(bm), expected_str)
 
