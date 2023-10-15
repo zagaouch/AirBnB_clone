@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Defines the BaseModel class."""
+"""Defines the BaseModel class """
 
 import uuid
 from datetime import datetime
@@ -7,7 +7,7 @@ import models
 
 
 class BaseModel:
-    """Represents the BaseModel of the AirBnB project."""
+    """The BaseModel of the AirBnB project."""
 
     def __init__(self, *args, **kwargs):
         """initialize an instance"""
@@ -32,7 +32,7 @@ class BaseModel:
 
     def to_dict(self):
         """
-        Return the dictionary of the BaseModel instance.
+        Return a dictionary of the BaseModel instance.
         """
         data = self.__dict__.copy()
         data['created_at'] = self.created_at.isoformat()
